@@ -1,7 +1,7 @@
 # Tp03PV2025Grupo19
 Integrantes del grupo:
-Matias Velazquez,
+Ignacio Apaza,
 Lucas Figueroa,
 Ignacio Huanca,
 Enrique Real y
-Ignacio Apaza
+Matias Velazquez.
