@@ -1,8 +1,8 @@
 import TaskList from './taskList'
-import Taskform from './Taskform'
-import {task as data} from "./tasks"
+import Taskform from './components/Taskform'
+import {tasks as data} from "./tasks"
 import { useEffect } from 'react';
-
+import { useState } from 'react';
 function App () {
   
   const [tasks, setTasks] = useState([]);
@@ -16,9 +16,10 @@ function App () {
 
   return (
     <>
-      <taskform createtask={createtask}/>
+      <Taskform createtask={createtask}/>
       <TaskList/>
     </>
   
 )
 }}
+export default App
