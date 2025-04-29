@@ -1,35 +1,43 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './styles/App.css'
-
+import TaskList from "./components/TaskList";
+import TaskForm from "./components/TaskForm";
+import { tasks as data } from "./tasks";
+import { useEffect } from "react";
+import { useState } from "react";
 function App() {
-  const [count, setCount] = useState(0)
+  const [tasks, setTasks] = useState([]);
+
+  useEffect(() => {
+    setTasks(data);
+  }, []);
+
+  function createTask(task) {
+    setTasks([...tasks, {
+      title: task.title,
+      description: task.description,
+      id: tasks.length + 1,
+      completed: false,
+    }]);
+  }
+
+  function deleteTask(taskid) {
+    setTasks(tasks.filter((task) => task.id !== taskid));
+  }
+
+  function crossOutTask(taskid){
+    setTasks(tasks.map(task => {
+      if(task.id === taskid)
+        return { ...task, completed: !task.completed };
+      else
+        return task;
+    }));
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <h1>Lista de Tareas</h1>
+      <TaskForm createTask={createTask} />
+      <TaskList tasks={tasks} deleteTask={deleteTask} crossOutTask={crossOutTask} />
     </>
-  )
+  );
 }
-
-export default App
+export default App;
