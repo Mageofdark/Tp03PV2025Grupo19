@@ -1,9 +1,18 @@
-function TaskCard({ task, deleteTask }) {
+function TaskCard({ task, deleteTask, crossOutTask }) {
   return (
     <div>
-      <h2>{task.title}</h2>
-      <p>{task.description}</p>
-      <button onClick={() => deleteTask(task.id)}>elimminar tarea</button>
+      <ul>
+        <li>
+          <h2 style={{ textDecoration: task.completed ? 'line-through' : 'none' }}>
+            {task.title}
+          </h2>
+          <p style={{ textDecoration: task.completed ? 'line-through' : 'none' }}>
+            {task.description}
+          </p>
+        </li>
+      </ul>
+      <button onClick={() => crossOutTask(task.id)}> Realizada </button>
+      <button onClick={() => deleteTask(task.id)}> Eliminar </button>
     </div>
   );
 }

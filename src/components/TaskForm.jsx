@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-function TaskForm({ createtask }) {
+function TaskForm({ createTask }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
   const handlesubmit = (e) => {
     e.preventDefault();
-    createtask({
+    createTask({
       title: title,
       description: description,
     });
@@ -23,6 +23,7 @@ function TaskForm({ createtask }) {
           onChange={(e) => setTitle(e.target.value)}
           value={title}
           autoFocus
+          required
         />
         <textarea
           placeholder="Escriba la descripcion de su tarea"

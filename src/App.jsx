@@ -10,21 +10,33 @@ function App() {
     setTasks(data);
   }, []);
 
-  function createtask(task) {
+  function createTask(task) {
     setTasks([...tasks, {
       title: task.title,
       description: task.description,
       id: tasks.length + 1,
+      completed: false,
     }]);
   }
 
   function deleteTask(taskid) {
     setTasks(tasks.filter((task) => task.id !== taskid));
   }
+
+  function crossOutTask(taskid){
+    setTasks(tasks.map(task => {
+      if(task.id === taskid)
+        return { ...task, completed: !task.completed };
+      else
+        return task;
+    }));
+  }
+
   return (
     <>
-      <TaskForm createtask={createtask} />
-      <TaskList tasks={tasks} deleteTask={deleteTask} />
+      <h1>Lista de Tareas</h1>
+      <TaskForm createTask={createTask} />
+      <TaskList tasks={tasks} deleteTask={deleteTask} crossOutTask={crossOutTask} />
     </>
   );
 }
