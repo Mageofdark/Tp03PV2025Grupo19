@@ -15,9 +15,10 @@ function TaskForm({ createTask }) {
   };
 
   return (
-    <div>
-      <form onSubmit={handlesubmit}>
+    <div className="form-container">
+      <form className="task-form" onSubmit={handlesubmit}>
         <input
+          className="input-field"
           type="text"
           placeholder="Escribe tu nueva tarea"
           onChange={(e) => setTitle(e.target.value)}
@@ -26,11 +27,12 @@ function TaskForm({ createTask }) {
           required
         />
         <textarea
-          placeholder="Escriba la descripcion de su tarea"
+          className="input-field"
+          placeholder="Escriba la descripción de su tarea"
           onChange={(e) => setDescription(e.target.value)}
           value={description}
         />
-        <button> Guardar </button>
+        <button className="submit-button">Guardar</button>
       </form>
     </div>
   );
