@@ -34,7 +34,7 @@ function App() {
 
   return (
     <>
-      <h1>Lista de Tareas</h1>
+      <h1 style={{ textAlign: "center" }}>Lista de Tareas</h1>
       <TaskForm createTask={createTask} />
       <TaskList tasks={tasks} deleteTask={deleteTask} crossOutTask={crossOutTask} />
     </>
