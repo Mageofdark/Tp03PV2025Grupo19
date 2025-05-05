@@ -35,7 +35,7 @@ const ListaProductos = ({
   };
 
   return (
-    <div>
+    <div className="lista-productos">
       <div >
         <button onClick={onOrdenarPorPrecio}>Ordenar por precio</button>
         <button onClick={onEliminarMasBarato}>Eliminar más barato</button>
@@ -46,7 +46,7 @@ const ListaProductos = ({
           {mostrarCaros ? 'Ocultar caros' : 'Mostrar caros'}
         </button>
       </div>
-
+      
       <h2>Añadir Nuevo Producto</h2>
       <form onSubmit={handleSubmit} >
         <div>

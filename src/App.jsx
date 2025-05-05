@@ -77,19 +77,24 @@ function App() {
 
   return (
     <>
-      <h1 style={{ textAlign: "center" }}>Lista de Tareas</h1>
-      <TaskForm createTask={createTask} />
-      <TaskList tasks={tasks} deleteTask={deleteTask} crossOutTask={crossOutTask} />
-      <h1>Lista de Productos</h1>
-      <ListaProductos 
-        productos={productos}
-        productosConIVA={productosConIVA()}
-        productosCaros={productosCaros()}
-        onOrdenarPorPrecio={ordenarPorPrecio}
-        onAgregarProducto={agregarProducto}
-        onEliminarMasBarato={eliminarMasBarato}
-      />
+  <h1 style={{ textAlign: "center" }}>Lista de Tareas</h1>
+      <div style={{ textAlign: "center" }}>
+        <TaskForm createTask={createTask} />
+        <TaskList tasks={tasks} deleteTask={deleteTask} crossOutTask={crossOutTask} />
+      </div>
+      <h1 style={{ textAlign: "center", marginTop: "2rem" }}>Lista de Productos</h1>
+      <div style={{ textAlign: "center" }}>
+        <ListaProductos
+          productos={productos}
+          productosConIVA={productosConIVA()}
+          productosCaros={productosCaros()}
+          onOrdenarPorPrecio={ordenarPorPrecio}
+          onAgregarProducto={agregarProducto}
+          onEliminarMasBarato={eliminarMasBarato}
+        />
+      </div>
     </>
   );
 }
+
 export default App;
